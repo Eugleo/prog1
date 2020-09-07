@@ -1,0 +1,3 @@
+include image
+overlay(rotate(25, star(50, "solid", "white")), overlay-align("left", "middle", rotate(270, isosceles-triangle(200, 60, "solid", "black")), overlay-align("left", "middle", rotate(270, isosceles-triangle(240, 49, "solid", "yellow")), rectangle(400, 200, "solid", "red"))))
+overlay-align("left", "bottom", rotate(270, overlay-align("left", "bottom", right-triangle(200, 300, "solid", "green"), right-triangle(230, 330, "solid", "yellow"))), overlay-align("right", "bottom", rotate(90, overlay-align("left", "bottom", right-triangle(200, 300, "solid", "dodger-blue"), right-triangle(230, 330, "solid", "yellow"))), rectangle(400, 230, "solid", "black")))
