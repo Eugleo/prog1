@@ -55,9 +55,9 @@ end
 fun add-pole-perc(
     flag :: Image,
     percentage :: Number) -> Image:
-  x = (100 - percentage) * 3
+  y = (100 - percentage) * ((300 - 63) / 100)
   pole = rectangle(5, 300, "solid", "gray")
-  beside-align("baseline", pole, greece-flag)
+  overlay-xy(pole, 5, y, flag)
 end
 
 #3
@@ -67,8 +67,8 @@ fun add-custom-pole-perc(
     pole-width :: Number,
     pole-height :: Number) -> Image:
   doc: "Creates a pole and hangs flag in a percentage height that is chosen by user."
-  x = (100 - percentage) * 3
-  pole = rectangle(
+  y = (100 - percentage) * ((pole-height - 63) / 100)
+    pole = rectangle(
     pole-width,
     pole-height,
     "solid",
@@ -76,36 +76,41 @@ fun add-custom-pole-perc(
   overlay-xy(
     pole,
     pole-width,
-    x,
-    greece-flag)
+    y,
+    flag)
 end
 
-add-custom-pole-perc(greece-flag, 100, 5, 200)
+add-custom-pole-perc(greece-flag, 0, 5, 300)
 
 #
 #
 #
 
-img = square(50, "solid", "red")
+red-square = square(50, "solid", "red")
 
 #3
 fun multiply-h(
     image :: Image) -> Image:
   frame(
-    beside(frame(img), frame(img)))
+    beside(frame(image), frame(image)))
 end
 #4
 fun multiply-v(
     image :: Image) -> Image:
   frame(
-    above(frame(img), frame(img)))
+    above(frame(image), frame(image)))
 end
 #5
 fun multiply-hv(
     image :: Image) -> Image:
   frame(
     above(
-      beside(frame(img), frame(img)),
-      beside(frame(img), frame(img))))
+      beside(frame(image), frame(image)),
+      beside(frame(image), frame(image))))
+end
+
+fun multiply-hv-2(
+    image :: Image) -> Image:
+  multiply-v(multiply-h(image))
 end
 
